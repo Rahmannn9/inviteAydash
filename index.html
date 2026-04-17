@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Invitation ✨</title>
+    <title>Xüsusi Dəvət ✨</title>
     
-    <!-- Animate.css for animations -->
+    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
-    <!-- GSAP for advanced animations -->
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     
-    <!-- Confetti library -->
+    <!-- Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
 
     <style>
@@ -42,7 +42,7 @@
         .blob-1 {
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(214,51,832,0.4), transparent);
+            background: radial-gradient(circle, rgba(214,51,132,0.4), transparent);
             left: -200px;
             top: 100px;
         }
@@ -530,51 +530,51 @@
     <div class="blur-blob blob-3"></div>
 
     <div class="container">
-        <h1 class="animate__animated animate__fadeInDown">✨ You're Special ✨</h1>
-        <p class="subtitle animate__animated animate__fadeInUp">Let's play a fun quiz first! 🎮</p>
+        <h1 class="animate__animated animate__fadeInDown">✨ Sən Xüsussan ✨</h1>
+        <p class="subtitle animate__animated animate__fadeInUp">Əvvəlcə əyləncəli bir oyun oynayaq! 🎮</p>
 
         <!-- Quiz Section -->
         <div class="quiz-section animate__animated animate__fadeInUp" id="quizSection">
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-            <div class="score-display">Question <span id="currentQuestion">1</span> of 3</div>
-            <div class="quiz-title">🎯 Quick Quiz</div>
+            <div class="score-display">Sual <span id="currentQuestion">1</span> / 3</div>
+            <div class="quiz-title">🎯 Tez Quiz</div>
             <div class="quiz-question" id="quizQuestion"></div>
             <div class="quiz-options" id="quizOptions"></div>
-            <button class="next-btn" id="nextBtn" onclick="nextQuestion()" disabled>Next Question →</button>
+            <button class="next-btn" id="nextBtn" onclick="nextQuestion()" disabled>Sonrakı Sual →</button>
         </div>
 
         <!-- Dating Selection Section -->
         <div class="dating-section" id="datingSection">
-            <h2 class="quiz-title">☕ Now, let's plan our date!</h2>
+            <h2 class="quiz-title">☕ İndi ölkəmizin tarixini planlaşdıraq!</h2>
 
             <div class="selection-container">
-                <div class="selection-title">☕ Choose a Café</div>
+                <div class="selection-title">☕ Kafeyi Seç</div>
                 <div class="options-grid" id="cafeGrid"></div>
             </div>
 
             <div class="selection-container">
-                <div class="selection-title" onclick="openTimeModal()">⏰ Choose a Time</div>
+                <div class="selection-title" onclick="openTimeModal()">⏰ Saatı Seç</div>
                 <div id="selectedTimeDisplay" style="font-size: 1.2rem; color: #d63384; font-weight: bold; margin-top: 10px;"></div>
             </div>
 
             <button class="submit-btn" id="submitBtn" onclick="sendWhatsApp()" disabled>
-                Send My Choice 💕
+                Seçimimi Göndər 💕
             </button>
         </div>
 
-        <div class="footer">Can't wait to see you! 💕✨🌹</div>
+        <div class="footer">Seni görməyə çox səbirəm! 💕✨🌹</div>
     </div>
 
     <!-- Time Picker Modal -->
     <div class="modal-overlay" id="timeModal">
         <div class="modal-content animate__animated animate__zoomIn">
-            <div class="modal-title">⏰ Select Time</div>
+            <div class="modal-title">⏰ Saatı Seç</div>
             
             <div class="time-picker">
                 <div class="time-column">
-                    <div class="time-label">Hours</div>
+                    <div class="time-label">Saat</div>
                     <div class="time-spinner">
                         <button class="spinner-btn" onclick="incrementHour()">▲</button>
                         <div class="time-display" id="hourDisplay">12</div>
@@ -585,7 +585,7 @@
                 <div style="font-size: 2rem; color: #d63384; font-weight: bold;">:</div>
 
                 <div class="time-column">
-                    <div class="time-label">Minutes</div>
+                    <div class="time-label">Dəqiqə</div>
                     <div class="time-spinner">
                         <button class="spinner-btn" onclick="incrementMinute()">▲</button>
                         <div class="time-display" id="minuteDisplay">00</div>
@@ -600,37 +600,37 @@
             </div>
 
             <div class="modal-buttons">
-                <button class="modal-btn cancel-btn" onclick="closeTimeModal()">Cancel</button>
-                <button class="modal-btn confirm-btn" onclick="confirmTime()">Confirm ✓</button>
+                <button class="modal-btn cancel-btn" onclick="closeTimeModal()">İmtina Et</button>
+                <button class="modal-btn confirm-btn" onclick="confirmTime()">Təsdiqlə ✓</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Quiz questions
+        // Quiz questions - Azərbaycanca
         const quizQuestions = [
             {
-                question: "What's your favorite way to spend time?",
-                options: ["☕ Relaxing at cafés", "🎭 Having adventures"],
-                answers: ["☕ Relaxing at cafés", "🎭 Having adventures"]
+                question: "Vaxtı keçirmənin ən sevimli yolu nədir?",
+                options: ["☕ Kafede rahat olmaq", "🎭 Macəra yaşamaq"],
+                answers: ["☕ Kafede rahat olmaq", "🎭 Macəra yaşamaq"]
             },
             {
-                question: "What's the best time to meet?",
-                options: ["🌅 Morning vibes", "🌙 Evening magic"],
-                answers: ["🌅 Morning vibes", "🌙 Evening magic"]
+                question: "Görüşmək üçün ən yaxşı vaxt hansıdır?",
+                options: ["🌅 Səhər havası", "🌙 Axşam cazibəsi"],
+                answers: ["🌅 Səhər havası", "🌙 Axşam cazibəsi"]
             },
             {
-                question: "What matters most to you?",
-                options: ["💕 Deep connection", "😊 Fun & laughter"],
-                answers: ["💕 Deep connection", "😊 Fun & laughter"]
+                question: "Sən üçün ən əhəmiyyətli nədir?",
+                options: ["💕 Dərin əlaqə", "😊 Xoşbəxtlik və gülüş"],
+                answers: ["💕 Dərin əlaqə", "😊 Xoşbəxtlik və gülüş"]
             }
         ];
 
         const cafes = [
-            { name: 'Café Aroma', emoji: '☕' },
-            { name: 'Café Bliss', emoji: '🌸' },
-            { name: 'Café Lumière', emoji: '🌹' },
-            { name: 'Café Harmony', emoji: '🦋' }
+            { name: 'Kafe Aroma', emoji: '☕' },
+            { name: 'Kafe Xoşbəxtlik', emoji: '🌸' },
+            { name: 'Kafe Nur', emoji: '🌹' },
+            { name: 'Kafe Harmoniya', emoji: '🦋' }
         ];
 
         let currentQuestionIndex = 0;
@@ -714,159 +714,5 @@
                 const btn = document.createElement('button');
                 btn.className = 'option-btn animate__animated animate__fadeInUp';
                 btn.style.animationDelay = (index * 0.1) + 's';
-                btn.innerHTML = `${cafe.emoji} ${cafe.name}`;
-                btn.onclick = () => selectCafe(index, btn);
-                grid.appendChild(btn);
-            });
-        }
-
-        function selectCafe(index, btn) {
-            document.querySelectorAll('#cafeGrid .option-btn').forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-            gsap.to(btn, { scale: 1.1, duration: 0.3 });
-            selectedCafe = cafes[index].name;
-            enableSubmitBtn();
-        }
-
-        // Time Picker Functions
-        function openTimeModal() {
-            document.getElementById('timeModal').classList.add('active');
-            gsap.from('.modal-content', { scale: 0.3, opacity: 0, duration: 0.4 });
-        }
-
-        function closeTimeModal() {
-            gsap.to('.modal-content', { 
-                scale: 0.3, 
-                opacity: 0, 
-                duration: 0.3,
-                onComplete: () => {
-                    document.getElementById('timeModal').classList.remove('active');
-                }
-            });
-        }
-
-        function incrementHour() {
-            selectedHour = selectedHour === 12 ? 1 : selectedHour + 1;
-            updateHourDisplay();
-        }
-
-        function decrementHour() {
-            selectedHour = selectedHour === 1 ? 12 : selectedHour - 1;
-            updateHourDisplay();
-        }
-
-        function incrementMinute() {
-            selectedMinute = (selectedMinute + 15) % 60;
-            updateMinuteDisplay();
-        }
-
-        function decrementMinute() {
-            selectedMinute = selectedMinute === 0 ? 45 : selectedMinute - 15;
-            updateMinuteDisplay();
-        }
-
-        function updateHourDisplay() {
-            document.getElementById('hourDisplay').textContent = String(selectedHour).padStart(2, '0');
-        }
-
-        function updateMinuteDisplay() {
-            document.getElementById('minuteDisplay').textContent = String(selectedMinute).padStart(2, '0');
-        }
-
-        function setPeriod(period) {
-            selectedPeriod = period;
-            document.querySelectorAll('.period-btn').forEach(btn => btn.classList.remove('active'));
-            if (period === 'AM') {
-                document.getElementById('amBtn').classList.add('active');
-            } else {
-                document.getElementById('pmBtn').classList.add('active');
-            }
-        }
-
-        function confirmTime() {
-            selectedTime = `${String(selectedHour).padStart(2, '0')}:${String(selectedMinute).padStart(2, '0')} ${selectedPeriod}`;
-            document.getElementById('selectedTimeDisplay').textContent = `⏰ ${selectedTime}`;
-            closeTimeModal();
-            enableSubmitBtn();
-        }
-
-        function enableSubmitBtn() {
-            if (selectedCafe && selectedTime) {
-                document.getElementById('submitBtn').disabled = false;
-            }
-        }
-
-        function sendWhatsApp() {
-            if (!selectedCafe || !selectedTime) return;
-            
-            gsap.to('#datingSection', { scale: 0.9, opacity: 0, duration: 0.5 });
-            confetti({ particleCount: 100, spread: 70 });
-            
-            const phone = '9994997789000';
-            const msg = `I choose: ${selectedCafe} at ${selectedTime} 💕✨`;
-            
-            setTimeout(() => {
-                window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
-            }, 500);
-        }
-
-        function createParticles(element) {
-            const rect = element.getBoundingClientRect();
-            for (let i = 0; i < 5; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle-emoji';
-                particle.innerHTML = ['❤️', '✨', '🌹', '💕', '⭐'][Math.floor(Math.random() * 5)];
-                particle.style.left = rect.left + rect.width / 2 + 'px';
-                particle.style.top = rect.top + rect.height / 2 + 'px';
-                document.body.appendChild(particle);
-                
-                gsap.to(particle, {
-                    x: (Math.random() - 0.5) * 200,
-                    y: -200,
-                    opacity: 0,
-                    duration: 1,
-                    ease: 'power2.out',
-                    onComplete: () => particle.remove()
-                });
-            }
-        }
-
-        function animateBlobs() {
-            gsap.to('.blob-1', {
-                x: 50,
-                y: -50,
-                duration: 8,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut'
-            });
-            gsap.to('.blob-2', {
-                x: -50,
-                y: 50,
-                duration: 10,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut'
-            });
-            gsap.to('.blob-3', {
-                x: 30,
-                y: 30,
-                duration: 12,
-                repeat: -1,
-                yoyo: true,
-                ease: 'sine.inOut'
-            });
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('timeModal').addEventListener('click', (e) => {
-            if (e.target.id === 'timeModal') {
-                closeTimeModal();
-            }
-        });
-
-        // Start
-        window.addEventListener('load', initQuiz);
-    </script>
-</body>
-</html>
+                btn.innerHTML = `${cafe.emoji} ${cafe.name`*
+
