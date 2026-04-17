@@ -3,472 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xüsusi Dəvət ✨</title>
-    
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    
-    <!-- Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
-
+    <title>Sənə Dəvət 💕</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe4f0 100%);
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Animated blur background */
-        .blur-blob {
-            position: fixed;
-            border-radius: 50%;
-            opacity: 0.3;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .blob-1 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(214,51,132,0.4), transparent);
-            left: -200px;
-            top: 100px;
-        }
-
-        .blob-2 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(194,24,91,0.3), transparent);
-            right: -150px;
-            top: 400px;
-        }
-
-        .blob-3 {
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(214,51,132,0.35), transparent);
-            left: 50%;
-            bottom: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .container {
-            max-width: 100%;
-            padding: 20px;
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 10;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            animation: slideIn 0.8s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            color: #d63384;
-            font-size: 2.8rem;
+            text-align: center;
+            color: #764ba2;
+            font-size: 2.5rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .subtitle {
-            color: #c2185b;
-            font-size: 1.3rem;
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-
-        /* Quiz Section */
-        .quiz-section {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 40px;
-            margin: 30px auto;
-            max-width: 700px;
-            box-shadow: 0 15px 50px rgba(214, 51, 132, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            min-height: 400px;
-        }
-
-        .quiz-title {
-            font-size: 1.8rem;
-            color: #d63384;
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
             margin-bottom: 30px;
             font-weight: bold;
         }
 
-        .quiz-question {
-            font-size: 1.3rem;
-            color: #333;
-            margin-bottom: 30px;
-            font-weight: 600;
+        .form-group {
+            margin-bottom: 25px;
         }
 
-        .quiz-options {
+        .form-label {
+            display: block;
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .cafe-options {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 10px;
         }
 
-        .quiz-btn {
-            background: linear-gradient(135deg, rgba(255, 200, 220, 0.8), rgba(255, 180, 210, 0.8));
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(214, 51, 132, 0.3);
-            border-radius: 15px;
-            padding: 20px;
+        .cafe-btn {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
             cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .cafe-btn:hover {
+            border-color: #764ba2;
+            background: #f5f5f5;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.2);
+        }
+
+        .cafe-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #764ba2;
+            box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4);
+        }
+
+        .time-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .time-input {
+            width: 60px;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
             font-size: 1rem;
             font-weight: bold;
-            color: #333;
+        }
+
+        .time-input:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+        }
+
+        .colon {
+            font-size: 2rem;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .period-selector {
+            display: flex;
+            gap: 8px;
+        }
+
+        .period-btn {
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            flex: 1;
         }
 
-        .quiz-btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .period-btn.active {
+            background: #764ba2;
+            color: white;
+            border-color: #764ba2;
+        }
+
+        .submit-btn {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #d63384, #c2185b);
-            transition: left 0.5s;
-            z-index: -1;
-        }
-
-        .quiz-btn:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.3);
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border-color: #d63384;
-        }
-
-        .quiz-btn:hover:before {
-            left: 0;
-        }
-
-        .quiz-btn.selected {
-            background: linear-gradient(135deg, #d63384, #c2185b);
-            color: white;
-            border-color: #d63384;
-            box-shadow: 0 15px 40px rgba(214, 51, 132, 0.5);
-            transform: scale(1.08);
-        }
-
-        .next-btn {
-            background: linear-gradient(135deg, #d63384, #c2185b);
-            color: white;
-            padding: 15px 50px;
             border: none;
-            border-radius: 25px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
             transition: all 0.3s ease;
             margin-top: 20px;
         }
 
-        .next-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 12px 35px rgba(214, 51, 132, 0.6);
-        }
-
-        .next-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* Dating Section */
-        .dating-section {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 40px;
-            margin: 30px auto;
-            max-width: 700px;
-            box-shadow: 0 15px 50px rgba(214, 51, 132, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            display: none;
-        }
-
-        .dating-section.active {
-            display: block;
-        }
-
-        .selection-container {
-            margin: 25px 0;
-        }
-
-        .selection-title {
-            font-size: 1.4rem;
-            color: #d63384;
-            margin-bottom: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 15px;
-        }
-
-        .selection-title:hover {
-            background: rgba(214, 51, 132, 0.1);
-            transform: scale(1.05);
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .option-btn {
-            background: rgba(240, 240, 240, 0.7);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(214, 51, 132, 0.2);
-            border-radius: 15px;
-            padding: 15px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: bold;
-            color: #333;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .option-btn:before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(214, 51, 132, 0.3));
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .option-btn:hover {
-            transform: scale(1.08);
-            border-color: #d63384;
-            background: rgba(232, 213, 232, 0.9);
-            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.3);
-        }
-
-        .option-btn:hover:before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .option-btn.selected {
-            background: linear-gradient(135deg, rgba(214, 51, 132, 0.9), rgba(194, 24, 91, 0.9));
-            color: white;
-            border-color: #d63384;
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.5);
-        }
-
-        /* Time Picker Modal */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            z-index: 999;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe4f0 100%);
-            border-radius: 30px;
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 25px 80px rgba(214, 51, 132, 0.3);
-            border: 3px solid rgba(214, 51, 132, 0.2);
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-
-        .modal-title {
-            font-size: 1.8rem;
-            color: #d63384;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        .time-picker {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            align-items: center;
-        }
-
-        .time-column {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .time-label {
-            font-size: 0.9rem;
-            color: #c2185b;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .time-spinner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .spinner-btn {
-            background: linear-gradient(135deg, #d63384, #c2185b);
-            color: white;
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
-        }
-
-        .spinner-btn:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.5);
-        }
-
-        .spinner-btn:active {
-            transform: scale(0.9);
-        }
-
-        .time-display {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid rgba(214, 51, 132, 0.3);
-            border-radius: 15px;
-            padding: 15px 20px;
-            font-size: 2rem;
-            font-weight: bold;
-            color: #d63384;
-            min-width: 60px;
-            text-align: center;
-            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .period-toggle {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .period-btn {
-            background: rgba(240, 240, 240, 0.7);
-            border: 2px solid rgba(214, 51, 132, 0.2);
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            color: #333;
-            transition: all 0.3s ease;
-        }
-
-        .period-btn.active {
-            background: linear-gradient(135deg, #d63384, #c2185b);
-            color: white;
-            border-color: #d63384;
-            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.3);
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .modal-btn {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .confirm-btn {
-            background: linear-gradient(135deg, #d63384, #c2185b);
-            color: white;
-            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.3);
-            flex: 1;
-        }
-
-        .confirm-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 30px rgba(214, 51, 132, 0.5);
-        }
-
-        .cancel-btn {
-            background: rgba(200, 200, 200, 0.6);
-            color: #333;
-            flex: 1;
-        }
-
-        .cancel-btn:hover {
-            background: rgba(180, 180, 180, 0.8);
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #d63384, #c2185b);
-            color: white;
-            padding: 15px 50px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
-            transition: all 0.3s ease;
-            margin-top: 30px;
-        }
-
         .submit-btn:hover:not(:disabled) {
-            transform: scale(1.08);
-            box-shadow: 0 12px 35px rgba(214, 51, 132, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(118, 75, 162, 0.4);
         }
 
         .submit-btn:disabled {
@@ -476,243 +172,165 @@
             cursor: not-allowed;
         }
 
-        .footer {
-            margin-top: 40px;
-            font-size: 1.5rem;
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 1rem;
         }
 
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(214, 51, 132, 0.1);
-            border-radius: 10px;
-            margin-bottom: 30px;
-            overflow: hidden;
+        .spinner-container {
+            display: flex;
+            gap: 5px;
+            align-items: center;
         }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #d63384, #c2185b);
-            width: 0%;
-            transition: width 0.5s ease;
-            border-radius: 10px;
+        .spinner {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
         }
 
-        .score-display {
-            font-size: 1.2rem;
-            color: #d63384;
+        .spinner button {
+            width: 30px;
+            height: 25px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
             font-weight: bold;
-            margin-bottom: 20px;
+            color: #764ba2;
+            transition: all 0.2s;
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .options-grid { grid-template-columns: 1fr; }
-            .quiz-options { grid-template-columns: 1fr; }
-            .dating-section, .quiz-section { padding: 25px; max-width: 95%; }
-            .modal-content { padding: 30px; }
-            .time-picker { gap: 10px; }
+        .spinner button:hover {
+            background: #f0f0f0;
+            border-color: #764ba2;
         }
 
-        /* Particle effects */
-        .particle-emoji {
-            position: fixed;
-            font-size: 2rem;
-            pointer-events: none;
-            z-index: 999;
+        .spinner input {
+            width: 50px;
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 8px;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
         }
     </style>
 </head>
 <body>
-    <!-- Animated blur blobs -->
-    <div class="blur-blob blob-1"></div>
-    <div class="blur-blob blob-2"></div>
-    <div class="blur-blob blob-3"></div>
-
     <div class="container">
-        <h1 class="animate__animated animate__fadeInDown">✨ Sən Xüsussan ✨</h1>
-        <p class="subtitle animate__animated animate__fadeInUp">Əvvəlcə əyləncəli bir oyun oynayaq! 🎮</p>
+        <h1>💕 Sənə Dəvət</h1>
+        <p class="subtitle">Bir neçə şey seç...</p>
 
-        <!-- Quiz Section -->
-        <div class="quiz-section animate__animated animate__fadeInUp" id="quizSection">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <div class="score-display">Sual <span id="currentQuestion">1</span> / 3</div>
-            <div class="quiz-title">🎯 Tez Quiz</div>
-            <div class="quiz-question" id="quizQuestion"></div>
-            <div class="quiz-options" id="quizOptions"></div>
-            <button class="next-btn" id="nextBtn" onclick="nextQuestion()" disabled>Sonrakı Sual →</button>
-        </div>
-
-        <!-- Dating Selection Section -->
-        <div class="dating-section" id="datingSection">
-            <h2 class="quiz-title">☕ İndi ölkəmizin tarixini planlaşdıraq!</h2>
-
-            <div class="selection-container">
-                <div class="selection-title">☕ Kafeyi Seç</div>
-                <div class="options-grid" id="cafeGrid"></div>
-            </div>
-
-            <div class="selection-container">
-                <div class="selection-title" onclick="openTimeModal()">⏰ Saatı Seç</div>
-                <div id="selectedTimeDisplay" style="font-size: 1.2rem; color: #d63384; font-weight: bold; margin-top: 10px;"></div>
-            </div>
-
-            <button class="submit-btn" id="submitBtn" onclick="sendWhatsApp()" disabled>
-                Seçimimi Göndər 💕
-            </button>
-        </div>
-
-        <div class="footer">Seni görməyə çox səbirəm! 💕✨🌹</div>
-    </div>
-
-    <!-- Time Picker Modal -->
-    <div class="modal-overlay" id="timeModal">
-        <div class="modal-content animate__animated animate__zoomIn">
-            <div class="modal-title">⏰ Saatı Seç</div>
-            
-            <div class="time-picker">
-                <div class="time-column">
-                    <div class="time-label">Saat</div>
-                    <div class="time-spinner">
-                        <button class="spinner-btn" onclick="incrementHour()">▲</button>
-                        <div class="time-display" id="hourDisplay">12</div>
-                        <button class="spinner-btn" onclick="decrementHour()">▼</button>
-                    </div>
+        <form id="dateForm">
+            <!-- Café Selection -->
+            <div class="form-group">
+                <label class="form-label">☕ Kafeyi Seç:</label>
+                <div class="cafe-options">
+                    <button type="button" class="cafe-btn" onclick="selectCafe(this, 'Kafe Aroma')">
+                        <span class="emoji">☕</span><br>Aroma
+                    </button>
+                    <button type="button" class="cafe-btn" onclick="selectCafe(this, 'Kafe Bliss')">
+                        <span class="emoji">🌸</span><br>Bliss
+                    </button>
+                    <button type="button" class="cafe-btn" onclick="selectCafe(this, 'Kafe Nur')">
+                        <span class="emoji">🌹</span><br>Nur
+                    </button>
+                    <button type="button" class="cafe-btn" onclick="selectCafe(this, 'Kafe Harmoniya')">
+                        <span class="emoji">🦋</span><br>Harmoniya
+                    </button>
                 </div>
+            </div>
 
-                <div style="font-size: 2rem; color: #d63384; font-weight: bold;">:</div>
-
-                <div class="time-column">
-                    <div class="time-label">Dəqiqə</div>
-                    <div class="time-spinner">
-                        <button class="spinner-btn" onclick="incrementMinute()">▲</button>
-                        <div class="time-display" id="minuteDisplay">00</div>
-                        <button class="spinner-btn" onclick="decrementMinute()">▼</button>
+            <!-- Time Selection -->
+            <div class="form-group">
+                <label class="form-label">⏰ Saatı Seç:</label>
+                <div class="time-container">
+                    <div class="spinner">
+                        <button type="button" onclick="incHour()">▲</button>
+                        <input type="text" id="hour" value="12" readonly class="time-input">
+                        <button type="button" onclick="decHour()">▼</button>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="spinner">
+                        <button type="button" onclick="incMin()">▲</button>
+                        <input type="text" id="minute" value="00" readonly class="time-input">
+                        <button type="button" onclick="decMin()">▼</button>
+                    </div>
+                    <div class="period-selector">
+                        <button type="button" class="period-btn active" onclick="setPeriod(this, 'AM')">AM</button>
+                        <button type="button" class="period-btn" onclick="setPeriod(this, 'PM')">PM</button>
                     </div>
                 </div>
             </div>
 
-            <div class="period-toggle">
-                <button class="period-btn active" id="amBtn" onclick="setPeriod('AM')">AM</button>
-                <button class="period-btn" id="pmBtn" onclick="setPeriod('PM')">PM</button>
-            </div>
+            <button type="button" class="submit-btn" onclick="submitForm()">Göndər 💕</button>
+        </form>
 
-            <div class="modal-buttons">
-                <button class="modal-btn cancel-btn" onclick="closeTimeModal()">İmtina Et</button>
-                <button class="modal-btn confirm-btn" onclick="confirmTime()">Təsdiqlə ✓</button>
-            </div>
-        </div>
+        <div class="message" id="message"></div>
     </div>
 
     <script>
-        // Quiz questions - Azərbaycanca
-        const quizQuestions = [
-            {
-                question: "Vaxtı keçirmənin ən sevimli yolu nədir?",
-                options: ["☕ Kafede rahat olmaq", "🎭 Macəra yaşamaq"],
-                answers: ["☕ Kafede rahat olmaq", "🎭 Macəra yaşamaq"]
-            },
-            {
-                question: "Görüşmək üçün ən yaxşı vaxt hansıdır?",
-                options: ["🌅 Səhər havası", "🌙 Axşam cazibəsi"],
-                answers: ["🌅 Səhər havası", "🌙 Axşam cazibəsi"]
-            },
-            {
-                question: "Sən üçün ən əhəmiyyətli nədir?",
-                options: ["💕 Dərin əlaqə", "😊 Xoşbəxtlik və gülüş"],
-                answers: ["💕 Dərin əlaqə", "😊 Xoşbəxtlik və gülüş"]
-            }
-        ];
-
-        const cafes = [
-            { name: 'Kafe Aroma', emoji: '☕' },
-            { name: 'Kafe Xoşbəxtlik', emoji: '🌸' },
-            { name: 'Kafe Nur', emoji: '🌹' },
-            { name: 'Kafe Harmoniya', emoji: '🦋' }
-        ];
-
-        let currentQuestionIndex = 0;
-        let quizAnswers = [];
         let selectedCafe = null;
-        let selectedTime = null;
         let selectedHour = 12;
         let selectedMinute = 0;
         let selectedPeriod = 'AM';
 
-        // Initialize quiz
-        function initQuiz() {
-            displayQuestion(0);
-            animateBlobs();
+        function selectCafe(btn, cafe) {
+            document.querySelectorAll('.cafe-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedCafe = cafe;
         }
 
-        function displayQuestion(index) {
-            const question = quizQuestions[index];
-            document.getElementById('quizQuestion').textContent = question.question;
-            document.getElementById('currentQuestion').textContent = index + 1;
-            
-            const progressPercent = ((index + 1) / quizQuestions.length) * 100;
-            gsap.to('#progressFill', { width: progressPercent + '%', duration: 0.5 });
-
-            const optionsContainer = document.getElementById('quizOptions');
-            optionsContainer.innerHTML = '';
-
-            question.options.forEach((option, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'quiz-btn animate__animated animate__fadeInUp';
-                btn.innerHTML = option;
-                btn.onclick = () => selectAnswer(idx, btn, option);
-                optionsContainer.appendChild(btn);
-            });
+        function incHour() {
+            selectedHour = selectedHour === 12 ? 1 : selectedHour + 1;
+            document.getElementById('hour').value = String(selectedHour).padStart(2, '0');
         }
 
-        function selectAnswer(idx, btn, answer) {
-            document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-            
-            gsap.to(btn, { scale: 1.05, duration: 0.3 });
-            
-            quizAnswers[currentQuestionIndex] = answer;
-            document.getElementById('nextBtn').disabled = false;
-            
-            createParticles(btn);
+        function decHour() {
+            selectedHour = selectedHour === 1 ? 12 : selectedHour - 1;
+            document.getElementById('hour').value = String(selectedHour).padStart(2, '0');
         }
 
-        function nextQuestion() {
-            currentQuestionIndex++;
+        function incMin() {
+            selectedMinute = (selectedMinute + 15) % 60;
+            document.getElementById('minute').value = String(selectedMinute).padStart(2, '0');
+        }
 
-            if (currentQuestionIndex < quizQuestions.length) {
-                gsap.to('#quizSection', { opacity: 0.5, duration: 0.3, onComplete: () => {
-                    displayQuestion(currentQuestionIndex);
-                    gsap.to('#quizSection', { opacity: 1, duration: 0.3 });
-                }});
-                document.getElementById('nextBtn').disabled = true;
-            } else {
-                completeQuiz();
+        function decMin() {
+            selectedMinute = selectedMinute === 0 ? 45 : selectedMinute - 15;
+            document.getElementById('minute').value = String(selectedMinute).padStart(2, '0');
+        }
+
+        function setPeriod(btn, period) {
+            document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedPeriod = period;
+        }
+
+        function submitForm() {
+            if (!selectedCafe) {
+                alert('Zəhmət olmasa kafeyi seç!');
+                return;
             }
+
+            const time = `${String(selectedHour).padStart(2, '0')}:${String(selectedMinute).padStart(2, '0')} ${selectedPeriod}`;
+            const phone = '9994997789000';
+            const message = `Salam! Mən ${selectedCafe} kafesinə ${time} vaxtında getmək istəyirəm 💕`;
+            
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
-        function completeQuiz() {
-            gsap.to('#quizSection', { 
-                opacity: 0, 
-                scale: 0.8, 
-                duration: 0.6,
-                onComplete: () => {
-                    document.getElementById('quizSection').style.display = 'none';
-                    document.getElementById('datingSection').classList.add('active');
-                    gsap.from('#datingSection', { opacity: 0, scale: 0.9, duration: 0.6 });
-                    createCafeButtons();
-                    confetti();
-                }
-            });
-        }
-
-        function createCafeButtons() {
-            const grid = document.getElementById('cafeGrid');
-            cafes.forEach((cafe, index) => {
-                const btn = document.createElement('button');
-                btn.className = 'option-btn animate__animated animate__fadeInUp';
-                btn.style.animationDelay = (index * 0.1) + 's';
-                btn.innerHTML = `${cafe.emoji} ${cafe.name`*
-
+        // Auto-focus effect
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Sayt yükləndi ✓');
+        });
+    </script>
+</body>
+</html>
