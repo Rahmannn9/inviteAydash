@@ -3,88 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Date Invitation</title>
+    <title>A Special Invitation ✨</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f7f9fc;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe4f0 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0.6;
+            pointer-events: none;
+            animation: float 6s infinite ease-in;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Floating flowers */
+        .flower {
+            position: fixed;
+            font-size: 2.5rem;
+            opacity: 0.5;
+            pointer-events: none;
+            animation: float 8s infinite ease-in;
+        }
+
+        /* Floating emojis */
+        .emoji {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0.4;
+            pointer-events: none;
+            animation: float 7s infinite ease-in;
+        }
+
+        /* Sparkle animation */
+        .sparkle {
+            position: fixed;
+            font-size: 1.5rem;
+            pointer-events: none;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
         .container {
-            max-width: 600px;
-            margin: auto;
+            max-width: 100%;
             padding: 20px;
             text-align: center;
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
         h1 {
-            color: #333;
-            margin-bottom: 20px;
+            color: #d63384;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
-        .cafe {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin: 20px 0;
-            padding: 20px;
-            transition: transform 0.2s;
+
+        .subtitle {
+            color: #c2185b;
+            font-size: 1.2rem;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
-        .cafe:hover {
-            transform: scale(1.02);
-        }
-        .cafe h2 {
-            color: #007BFF;
-        }
-        .cafe p {
+
+        .invitation-text {
             color: #666;
+            font-size: 1rem;
+            margin: 20px 0;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
+
+        .cafe-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .cafe {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(214, 51, 132, 0.15);
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(214, 51, 132, 0.2);
+            animation: fadeInUp 1s ease-out both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cafe:nth-child(1) { animation-delay: 0.6s; }
+        .cafe:nth-child(2) { animation-delay: 0.8s; }
+        .cafe:nth-child(3) { animation-delay: 1s; }
+        .cafe:nth-child(4) { animation-delay: 1.2s; }
+
+        .cafe::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cafe:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(214, 51, 132, 0.25);
+            border-color: #d63384;
+        }
+
+        .cafe:hover::before {
+            left: 100%;
+        }
+
+        .cafe-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        .cafe:nth-child(2) .cafe-icon { animation-delay: 0.2s; }
+        .cafe:nth-child(3) .cafe-icon { animation-delay: 0.4s; }
+        .cafe:nth-child(4) .cafe-icon { animation-delay: 0.6s; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .cafe h2 {
+            color: #d63384;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cafe-time {
+            color: #c2185b;
+            font-size: 1.1rem;
+            margin: 8px 0;
+            font-weight: bold;
+        }
+
+        .cafe-location {
+            color: #888;
+            font-size: 0.95rem;
+            margin: 8px 0;
+        }
+
         .button {
-            background: #007BFF;
+            background: linear-gradient(135deg, #d63384 0%, #c2185b 100%);
             color: #fff;
-            padding: 10px 20px;
+            padding: 12px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.3s;
+            margin-top: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
+            position: relative;
         }
+
         .button:hover {
-            background: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(214, 51, 132, 0.5);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 1.5rem;
+            animation: fadeInUp 1s ease-out 1.4s both;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .cafe {
+                padding: 20px;
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+            animation: confetti-fall 3s ease-out;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(300px) rotate(720deg);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>You're Invited to a Café Date!</h1>
-        <p>Choose one of the following café options:</p>
-
-        <div class="cafe">
-            <h2>Café Aroma</h2>
-            <p>Time: 10:00 AM - 11:00 AM</p>
-            <p>Location: Downtown, 123 Aroma St.</p>
-            <button class="button">RSVP</button>
+        <div class="header">
+            <h1>✨ You're Special ✨</h1>
+            <p class="subtitle">I have something special planned...</p>
         </div>
 
-        <div class="cafe">
-            <h2>Café Bliss</h2>
-            <p>Time: 1:00 PM - 2:00 PM</p>
-            <p>Location: Uptown, 456 Bliss Ave.</p>
-            <button class="button">RSVP</button>
+        <p class="invitation-text">
+            I'd love to spend time with you at one of these beautiful cafés.<br>
+            Pick the one that feels right, and let's make this moment memorable! 💕
+        </p>
+
+        <div class="cafe-container">
+            <div class="cafe">
+                <div class="cafe-icon">☕</div>
+                <h2>Café Aroma</h2>
+                <div class="cafe-time">Friday, 3:00 PM</div>
+                <div class="cafe-location">Downtown Corner</div>
+                <button class="button" onclick="celebrate()">Choose This ♥</button>
+            </div>
+
+            <div class="cafe">
+                <div class="cafe-icon">🌸</div>
+                <h2>Café Bliss</h2>
+                <div class="cafe-time">Saturday, 4:30 PM</div>
+                <div class="cafe-location">Garden District</div>
+                <button class="button" onclick="celebrate()">Choose This ♥</button>
+            </div>
+
+            <div class="cafe">
+                <div class="cafe-icon">🌹</div>
+                <h2>Café Lumière</h2>
+                <div class="cafe-time">Sunday, 2:00 PM</div>
+                <div class="cafe-location">Sunset Avenue</div>
+                <button class="button" onclick="celebrate()">Choose This ♥</button>
+            </div>
+
+            <div class="cafe">
+                <div class="cafe-icon">🦋</div>
+                <h2>Café Harmony</h2>
+                <div class="cafe-time">Friday, 5:15 PM</div>
+                <div class="cafe-location">Lakeside Promenade</div>
+                <button class="button" onclick="celebrate()">Choose This ♥</button>
+            </div>
         </div>
 
-        <div class="cafe">
-            <h2>Café Delight</h2>
-            <p>Time: 3:00 PM - 4:00 PM</p>
-            <p>Location: Midtown, 789 Delight Rd.</p>
-            <button class="button">RSVP</button>
-        </div>
-
-        <div class="cafe">
-            <h2>Café Harmony</h2>
-            <p>Time: 5:00 PM - 6:00 PM</p>
-            <p>Location: Lakeside, 321 Harmony Blvd.</p>
-            <button class="button">RSVP</button>
+        <div class="footer">
+            Can't wait to see you! 💕✨🌹
         </div>
     </div>
-</body>
-</html>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (5 + Math.random() * 3) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 8000);
+        }
+
+        function createFlower() {
+            const flowers = ['🌹', '🌸', '🌺', '🌼', '🌻'];
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + '%';
+            flower.style.animationDuration = (7 + Math.random() * 3) + 's';
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 10000);
+        }
+
+        function createEmoji() {
+            const emojis = ['✨', '💫', '⭐', '💕', '💖'];
+            const emoji = document.createElement('div');
+            emoji.className = 'emoji';
+            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + '%';
+            emoji.style.animationDuration = (6 + Math.random() * 3) + 's';
+            document.body.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 9000);
+        }
+
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.innerHTML = '✨';
+            sparkle.style.left = Math*
+
